@@ -1,8 +1,8 @@
 const laughBt = document.querySelector(".hehehe");
 const result = document.querySelector(".hahaha");
 
-const laughAudio = new Audio("/Man Laugh And Knee Slap.mp3");
-laughAudio.loop = true;
+const laughAudio2 = document.getElementById("audio");
+laughAudio2.loop = true;
 
 function laugh(text) {
   result.innerHTML = `${text}`;
@@ -11,11 +11,11 @@ function laugh(text) {
 laughBt.addEventListener("click", () => {
   if (result.innerHTML == "") {
     laughBt.innerHTML = "Stop";
-    laughAudio.play();
+    laughAudio2.play();
   } else {
     laugh("");
     laughBt.innerHTML = "Laugh";
-    laughAudio.pause();
+    laughAudio2.pause();
   }
   startOrStop();
 });
@@ -26,10 +26,12 @@ const counting = () => {
   timer -= 1;
   console.log(timer);
 
-  if (timer === 5 || timer === 3 || timer === 1) {
+  if (timer === 5 || timer === 2) {
     laugh("HAHAHAHA");
-  } else if (timer === 4 || timer === 2 || timer === 0) {
+  } else if (timer === 4 || timer === 1) {
     laugh("HEHEHEHE");
+  } else if (timer === 3 || timer === 0) {
+    laugh("HOHOHOHO");
   }
 
   if (timer === 0) {
