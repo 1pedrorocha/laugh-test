@@ -10,11 +10,11 @@ function laugh(text) {
 
 laughBt.addEventListener("click", () => {
   if (result.innerHTML == "") {
-    laughBt.innerHTML = "Stop";
+    laughBt.innerHTML = "Parar";
     laughAudio2.play();
   } else {
     laugh("");
-    laughBt.innerHTML = "Laugh";
+    laughBt.innerHTML = "Lamentar";
     laughAudio2.pause();
   }
   startOrStop();
