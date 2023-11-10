@@ -105,6 +105,14 @@ formLamento.addEventListener("submit", (event1) => {
   document.querySelector(".form-textarea").value = "";
 });
 
+const zerador = document.querySelector(".zerar-button");
+
+zerador.addEventListener("click", () => {
+  localStorage.clear();
+  console.log("foi?");
+  lamentosContainer.innerHTML = "";
+});
+
 // function startOrPause() {
 //   if (timerInterval) {
 //     stopCounting();
