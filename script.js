@@ -51,6 +51,60 @@ function startOrStop() {
   timerInterval = setInterval(counting, 1000);
 }
 
+// LOCAL STORAGE
+
+const formLamento = document.querySelector(".random-form");
+const localStorageItems = localStorage.getItem("lamentos");
+let lamentos = localStorageItems ? JSON.parse(localStorageItems) : [];
+
+const lamentosContainer = document.querySelector(".lamentos-list");
+
+const updateLocalStorage = () => {
+  localStorage.setItem("lamentos", JSON.stringify(lamentos));
+};
+
+const button1 = document.querySelector("#form-button");
+
+function criaLamento(novoLamento) {
+  console.log("funçao ativada");
+  const li = document.createElement("li");
+
+  const paragraph = document.createElement("p");
+
+  paragraph.textContent = novoLamento;
+
+  console.log(paragraph.textContent);
+
+  //   lamentosContainer.appendChild(li);
+
+  li.appendChild(paragraph);
+
+  return li;
+}
+
+lamentos.forEach((lamento) => {
+  const itemLamento = criaLamento(lamento);
+  lamentosContainer.appendChild(itemLamento);
+});
+
+formLamento.addEventListener("submit", (event1) => {
+  event1.preventDefault();
+
+  const lamento = document.querySelector(".form-textarea").value;
+
+  lamentos.push(lamento);
+  console.log(lamentos);
+
+  updateLocalStorage();
+
+  criaLamento(lamento);
+
+  const itemLamento = criaLamento(lamento);
+  lamentosContainer.appendChild(itemLamento);
+
+  document.querySelector(".form-textarea").value = "";
+});
+
 // function startOrPause() {
 //   if (timerInterval) {
 //     stopCounting();
